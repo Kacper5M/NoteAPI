@@ -33,14 +33,8 @@ namespace NoteAPI.Migrations
                     b.Property<int>("Color")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
                     b.Property<bool>("IsImportant")
                         .HasColumnType("bit");
-
-                    b.Property<DateTime>("ModifiedDate")
-                        .HasColumnType("datetime2");
 
                     b.Property<string>("NoteBody")
                         .IsRequired()

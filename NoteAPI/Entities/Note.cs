@@ -12,7 +12,5 @@ namespace NoteAPI.Entities
         public string NoteBody { get; set; }
         public bool IsImportant { get; set; }
         public int Color { get; set; }
-        public DateTime CreatedDate { get; set; }
-        public DateTime ModifiedDate { get; set; }
     }
 }

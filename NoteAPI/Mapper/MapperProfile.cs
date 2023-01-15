@@ -23,6 +23,10 @@ namespace NoteAPI.Mapper
                 .ForMember(dest => dest.Email, opt => opt.Condition(src => !string.IsNullOrEmpty(src.Email)))
                 .ForMember(dest => dest.DateOfBirth, opt => opt.Condition(src => src.DateOfBirth > DateTime.MinValue));
 
+            CreateMap<UpdateNoteDto, Note>()
+                .ForMember(dest => dest.NoteTitle, opt => opt.Condition(src => !string.IsNullOrEmpty(src.NoteTitle)))
+                .ForMember(dest => dest.NoteBody, opt => opt.Condition(src => !string.IsNullOrEmpty(src.NoteBody)))
+                .ForMember(dest => dest.Color, opt => opt.Condition(src => src.Color != default));
         }
     }
 }

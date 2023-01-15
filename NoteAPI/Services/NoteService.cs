@@ -1,14 +1,9 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.Extensions.Logging;
 using NoteAPI.Authorization;
 using NoteAPI.Entities;
 using NoteAPI.Exceptions;
 using NoteAPI.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
 
 namespace NoteAPI.Services
 {
@@ -129,8 +124,6 @@ namespace NoteAPI.Services
             var note = _mapper.Map<Note>(dto);
 
             note.UserId  = _userContextService.GetUserID.Value;
-            note.CreatedDate = DateTime.Now;
-            note.ModifiedDate = DateTime.MinValue;
 
             _dbContext.Notes.Add(note);
             _dbContext.SaveChanges();
@@ -189,7 +182,6 @@ namespace NoteAPI.Services
             }
 
             note = _mapper.Map(dto, note);
-            note.ModifiedDate = DateTime.Now;
 
             _dbContext.Update(note);
             _dbContext.SaveChanges();
@@ -220,7 +212,6 @@ namespace NoteAPI.Services
             }
 
             note.IsImportant = !note.IsImportant;
-            note.ModifiedDate = DateTime.Now;
 
             _dbContext.Update(note);
             _dbContext.SaveChanges();

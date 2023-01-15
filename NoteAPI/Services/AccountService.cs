@@ -52,7 +52,7 @@ namespace NoteAPI.Services
                 LastName = dto.LastName,
                 Email = dto.Email,
                 DateOfBirth = dto.DateOfBirth,
-                RoleId = 2
+                RoleId = 1
             };
 
             var hashedPassword = _passwordHasher.HashPassword(newUser, dto.Password);
